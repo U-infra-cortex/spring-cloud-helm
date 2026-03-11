@@ -56,7 +56,7 @@ postgresDeployment:
   replicas: 1
 pvc:
   msaPostgresPvc:
-    storageClass: rook-ceph-block
+    storageClass: gp2
     storageRequest: 10Gi
 userDeployment:
   replicas: 1
