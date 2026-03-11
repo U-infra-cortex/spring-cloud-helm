@@ -21,6 +21,18 @@ spec:
       - env:
         - name: spring.profiles.active
           value: prod
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:postgresql://postgres:5432/msa
+        - name: SPRING_DATASOURCE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_USER
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_PASSWORD
         image: {{ .Values.batchDeployment.batch.image.repository }}:{{ .Values.batchDeployment.batch.image.tag
           | default .Chart.AppVersion }}
         name: batch
@@ -52,6 +64,18 @@ spec:
       - env:
         - name: spring.profiles.active
           value: prod
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:postgresql://postgres:5432/msa
+        - name: SPRING_DATASOURCE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_USER
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_PASSWORD
         image: {{ .Values.businessDeployment.business.image.repository }}:{{ .Values.businessDeployment.business.image.tag
           | default .Chart.AppVersion }}
         name: business
@@ -187,6 +211,18 @@ spec:
       - env:
         - name: spring.profiles.active
           value: prod
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:postgresql://postgres:5432/msa
+        - name: SPRING_DATASOURCE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_USER
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_PASSWORD
         image: {{ .Values.userDeployment.user.image.repository }}:{{ .Values.userDeployment.user.image.tag
           | default .Chart.AppVersion }}
         name: user
