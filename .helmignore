@@ -21,3 +21,6 @@
 .idea/
 *.tmproj
 .vscode/
+
+# Custom ignores
+eks-workshop-v2/
