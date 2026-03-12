@@ -140,6 +140,8 @@ spec:
       - env:
         - name: spring.profiles.active
           value: prod
+        - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+          value: http://discovery-service:8761/eureka/
         image: {{ .Values.gatewayDeployment.gateway.image.repository }}:{{ .Values.gatewayDeployment.gateway.image.tag
           | default .Chart.AppVersion }}
         name: gateway
